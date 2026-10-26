@@ -17,8 +17,24 @@
 }
 @media (prefers-color-scheme: dark) {
 	:root {
-		--gnome-tabbar-tab-active-background: color-mix(in srgb, black 18%, var(--gnome-tabbar-background)) !important;
+		--gnome-tabbar-tab-active-background: #191919 !important;
 		--gnome-tabbar-tab-active-hover-background: color-mix(in srgb, black 12%, var(--gnome-tabbar-background)) !important;
+	}
+}
+
+/* Dark colors from Claude Desktop: a neutral frame (#232323, its sidebar)
+   around a darker work area (#191919, its chat; customContent.css gives
+   it to Firefox's own pages). The frame is the header bar and the sidebar,
+   launcher strip and panel alike. The selected tab above takes the
+   work-area color, so it reads as joined to the page. Text fields take
+   the grey of Claude's input box (#303030). The theme dims the frame in
+   inactive windows; Claude doesn't, so neither does this. */
+@media (prefers-color-scheme: dark) {
+	:root, :root:-moz-window-inactive {
+		--gnome-headerbar-background: #232323 !important;
+		--gnome-sidebar-background: #232323 !important;
+		--gnome-secondary-sidebar-background: #232323 !important;
+		--gnome-entry-background: #303030 !important;
 	}
 }
 

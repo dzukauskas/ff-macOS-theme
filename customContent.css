@@ -1,0 +1,11 @@
+/* Content overrides, loaded last by userContent.css */
+
+/* Dark colors from Claude Desktop: Firefox's own pages (new tab, settings)
+   take its work-area color (#191919), darker than the browser frame, and
+   text fields the grey of its input box (#303030), as in customChrome.css. */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--gnome-window-background: #191919 !important;
+		--gnome-entry-background: #303030 !important;
+	}
+}
