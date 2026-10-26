@@ -17,3 +17,7 @@ user_pref("browser.theme.dark-private-windows", false);
 // Enable rounded bottom window corners
 user_pref("widget.gtk.rounded-bottom-corners.enabled", true);
 
+// Hide the tab bar while only one tab is open (customChrome.css collapses
+// the whole bar)
+user_pref("gnomeTheme.hideSingleTab", true);
+
