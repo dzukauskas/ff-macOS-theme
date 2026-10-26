@@ -9,3 +9,21 @@
 		--gnome-entry-background: #303030 !important;
 	}
 }
+
+/* New tab search box and shortcut tiles in the neutral grey of Claude's
+   input box (#303030) instead of the bluish theme and Firefox greys. Tiles
+   keep Firefox's own pattern: a slightly see-through card that turns
+   solid on hover. */
+@-moz-document url("about:newtab"), url("about:home") {
+	@media (prefers-color-scheme: dark) {
+		body {
+			--newtab-background-color-secondary: #303030 !important;
+			--newtab-background-card: color-mix(in srgb, #303030 80%, transparent) !important;
+		}
+
+		/* GitHub's icon is black and vanished on the dark tile. */
+		.top-site-button[href*="://github.com"] .icon-wrapper {
+			filter: invert(1) !important;
+		}
+	}
+}
