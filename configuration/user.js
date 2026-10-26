@@ -21,3 +21,7 @@ user_pref("widget.gtk.rounded-bottom-corners.enabled", true);
 // the whole bar)
 user_pref("gnomeTheme.hideSingleTab", true);
 
+// Tab close button on the left, as in Safari. The theme follows the GTK
+// window-control side, which macOS doesn't report, so swap it explicitly
+user_pref("gnomeTheme.swapTabClose", true);
+
