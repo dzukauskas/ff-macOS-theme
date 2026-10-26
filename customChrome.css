@@ -82,3 +82,11 @@
 #urlbar:not([searchmode]) .searchmode-switcher {
 	--button-icon-content: var(--gnome-icon-edit-find-symbolic) !important;
 }
+
+/* Tab close button: no hover circle (it filled the slimmer tab); the
+   cross itself turns red instead. The theme's destructive color is
+   lightened to pink in dark mode, so use the palette red directly. */
+#tabbrowser-tabs .tab-close-button:is(:hover, :active) {
+	background-color: transparent !important;
+	fill: var(--gnome-palette-red-2) !important;
+}
