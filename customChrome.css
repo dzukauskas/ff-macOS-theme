@@ -58,6 +58,11 @@
 #nav-bar #urlbar:is([focused], [open]) {
 	box-shadow: none !important;
 }
+/* Address and placeholder centered, as in Safari; they move to the left
+   for editing once the field is focused. */
+#nav-bar #urlbar:not([focused], [open]) .urlbar-input {
+	text-align: center !important;
+}
 
 /* New tab button moved to the toolbar, as in Safari: keep the plain "+"
    the theme uses in the tab bar instead of its boxed tab-new icon. */
