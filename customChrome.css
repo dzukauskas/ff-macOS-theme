@@ -46,3 +46,13 @@
 #nav-bar #new-tab-button {
 	list-style-image: var(--gnome-icon-list-add-symbolic) !important;
 }
+
+/* hideSingleTab only hides the lone tab, so the empty tab bar still adds a
+   strip under the address bar. Collapse the whole bar under the same
+   condition; the window buttons live in the nav bar, not here. :has()
+   cannot be nested, so the theme's test is spelled out on the bar itself. */
+@media -moz-pref("gnomeTheme.hideSingleTab") and (not -moz-pref("sidebar.verticalTabs")) {
+	#TabsToolbar:not(:has(tab[pinned]:not([hidden]))):not(:has(tab-group)):not(:has(tab:not([hidden]) ~ tab:not([hidden]))) {
+		visibility: collapse !important;
+	}
+}
