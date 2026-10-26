@@ -56,3 +56,20 @@
 		visibility: collapse !important;
 	}
 }
+
+/* Slimmer tab bar, as in Safari: tabs are a secondary row, so make them
+   lower than the toolbar buttons (theme: 34px) and tighten the gap below
+   them (theme: the toolbar padding). The toolbar itself keeps its size.
+   The theme sets the height on the tab strip, so override it there. */
+@media not -moz-pref("sidebar.verticalTabs") {
+	#tabbrowser-tabs[orient="horizontal"],
+	#tabbrowser-tabs[orient="horizontal"] arrowscrollbox {
+		--tab-min-height: 28px !important;
+	}
+	#tabbrowser-tabs[orient="horizontal"] :not([collapsed]) > .tabbrowser-tab {
+		padding-bottom: 4px !important;
+		/* Firefox gives each tab a transparent 3px border above and below,
+		   which kept the bar 6px taller than the tabs need. */
+		border-block-width: 0 !important;
+	}
+}
