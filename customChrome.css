@@ -7,3 +7,17 @@
 		appearance: auto !important;
 	}
 }
+
+/* Selected tab: darker than the tab bar in both color schemes (upstream
+   lightens it in dark mode). The selected surface, its hover state and the
+   close-button overlay all read these two variables. */
+:root {
+	--gnome-tabbar-tab-active-background: color-mix(in srgb, black 12%, var(--gnome-tabbar-background)) !important;
+	--gnome-tabbar-tab-active-hover-background: color-mix(in srgb, black 9%, var(--gnome-tabbar-background)) !important;
+}
+@media (prefers-color-scheme: dark) {
+	:root {
+		--gnome-tabbar-tab-active-background: color-mix(in srgb, black 18%, var(--gnome-tabbar-background)) !important;
+		--gnome-tabbar-tab-active-hover-background: color-mix(in srgb, black 12%, var(--gnome-tabbar-background)) !important;
+	}
+}
