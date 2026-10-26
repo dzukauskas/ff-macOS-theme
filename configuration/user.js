@@ -25,3 +25,8 @@ user_pref("gnomeTheme.hideSingleTab", true);
 // window-control side, which macOS doesn't report, so swap it explicitly
 user_pref("gnomeTheme.swapTabClose", true);
 
+// Shorter address, as in Safari: hide "https://" (customChrome.css centers
+// it). Not trimWww: in Firefox 158 it stops Firefox from dimming everything
+// but the domain
+user_pref("browser.urlbar.trimHttps", true);
+
