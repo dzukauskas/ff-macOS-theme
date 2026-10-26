@@ -74,6 +74,12 @@
 #nav-bar #new-tab-button {
 	list-style-image: var(--gnome-icon-list-add-symbolic) !important;
 }
+/* An empty tab (new tab, home) shows the same "+" in grey instead of the
+   Firefox logo; a loading tab turns it (below). */
+.tabbrowser-tab[image="chrome://branding/content/icon32.png"] .tab-icon-image {
+	content: var(--gnome-icon-list-add-symbolic) !important;
+	fill: color-mix(in srgb, currentColor 46%, transparent) !important;
+}
 
 /* hideSingleTab only hides the lone tab, so the empty tab bar still adds a
    strip under the address bar. Collapse the whole bar under the same
