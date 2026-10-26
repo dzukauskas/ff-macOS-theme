@@ -73,3 +73,12 @@
 		border-block-width: 0 !important;
 	}
 }
+
+/* Search switcher in the address bar: a magnifier, as in Safari, instead
+   of the default engine's icon. Firefox swaps the button's image source
+   for the engine icon; moz-button draws its icon with
+   content: var(--button-icon-content), which wins over that source. In an
+   explicit search mode (bookmarks, tabs...) the mode's own icon stays. */
+#urlbar:not([searchmode]) .searchmode-switcher {
+	--button-icon-content: var(--gnome-icon-edit-find-symbolic) !important;
+}
