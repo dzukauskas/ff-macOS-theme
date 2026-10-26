@@ -42,14 +42,16 @@
    hairline marks the field. Focused, the theme's outline takes over in
    the grey of the toolbar icons (measured from back/reload/home) instead
    of the accent; in dark mode it is drawn from the text color, so it reads
-   as a stronger, white-ish hairline. */
+   as a stronger, white-ish hairline. Every text field shares that outline. */
 #nav-bar #urlbar {
 	background-color: transparent !important;
 	box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 12%, transparent) !important;
+}
+:root {
 	--gnome-entry-focused-border-color: #525157 !important;
 }
 @media (prefers-color-scheme: dark) {
-	#nav-bar #urlbar {
+	:root {
 		--gnome-entry-focused-border-color: color-mix(in srgb, currentColor 50%, transparent) !important;
 	}
 }

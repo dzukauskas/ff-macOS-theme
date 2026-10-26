@@ -10,11 +10,28 @@
 	}
 }
 
+/* Text fields' focus outline: the same grey as in customChrome.css
+   instead of the accent blue. */
+:root {
+	--gnome-entry-focused-border-color: #525157 !important;
+}
+@media (prefers-color-scheme: dark) {
+	:root {
+		--gnome-entry-focused-border-color: color-mix(in srgb, currentColor 50%, transparent) !important;
+	}
+}
+
 /* New tab search box and shortcut tiles in the neutral grey of Claude's
    input box (#303030) instead of the bluish theme and Firefox greys. Tiles
    keep Firefox's own pattern: a slightly see-through card that turns
    solid on hover. */
 @-moz-document url("about:newtab"), url("about:home") {
+	/* The search box's focus ring: the text fields' outline above. */
+	.search-wrapper content-search-handoff-ui {
+		--content-search-handoff-ui-fakefocus-border-color: var(--gnome-entry-focused-border-color) !important;
+		--content-search-handoff-ui-fakefocus-box-shadow-inner: transparent !important;
+	}
+
 	@media (prefers-color-scheme: dark) {
 		body {
 			--newtab-background-color-secondary: #303030 !important;
