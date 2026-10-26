@@ -78,9 +78,12 @@
    of the default engine's icon. Firefox swaps the button's image source
    for the engine icon; moz-button draws its icon with
    content: var(--button-icon-content), which wins over that source. In an
-   explicit search mode (bookmarks, tabs...) the mode's own icon stays. */
+   explicit search mode (bookmarks, tabs...) the mode's own icon stays.
+   The magnifier and its arrow take the placeholder's color: the text color
+   at 54% (Firefox) times the theme's 0.85 opacity on it. */
 #urlbar:not([searchmode]) .searchmode-switcher {
 	--button-icon-content: var(--gnome-icon-edit-find-symbolic) !important;
+	color: color-mix(in srgb, currentColor 46%, transparent) !important;
 }
 
 /* Tab close button: no hover circle (it filled the slimmer tab); the
