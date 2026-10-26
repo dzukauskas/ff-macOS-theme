@@ -1,0 +1,9 @@
+/* macOS overrides, loaded last by userChrome.css */
+
+/* macOS: the theme sets appearance: none on the button box, which leaves the
+   native traffic-light buttons without a place to draw. Restore it. */
+@media (-moz-platform: macos) {
+	:root[customtitlebar] .titlebar-buttonbox-container .titlebar-buttonbox {
+		appearance: auto !important;
+	}
+}
