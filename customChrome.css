@@ -21,3 +21,13 @@
 		--gnome-tabbar-tab-active-hover-background: color-mix(in srgb, black 12%, var(--gnome-tabbar-background)) !important;
 	}
 }
+
+/* Address bar like Safari: no fill, the toolbar shows through and a thin
+   hairline marks the field. Focused, the theme's accent outline takes over. */
+#nav-bar #urlbar {
+	background-color: transparent !important;
+	box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 12%, transparent) !important;
+}
+#nav-bar #urlbar:is([focused], [open]) {
+	box-shadow: none !important;
+}
