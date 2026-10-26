@@ -40,3 +40,9 @@
 #nav-bar #urlbar:is([focused], [open]) {
 	box-shadow: none !important;
 }
+
+/* New tab button moved to the toolbar, as in Safari: keep the plain "+"
+   the theme uses in the tab bar instead of its boxed tab-new icon. */
+#nav-bar #new-tab-button {
+	list-style-image: var(--gnome-icon-list-add-symbolic) !important;
+}
