@@ -130,3 +130,51 @@
 :root:has(#tabbrowser-tabs .tab-close-button:hover) #tab-preview-panel {
 	-moz-window-opacity: 0 !important;
 }
+
+/* Page loading as an ECG: while the selected tab loads, a P-QRS-T trace
+   sweeps through the address field, as on a patient monitor, and fades
+   out once the page has loaded. It is drawn on the field's background
+   layer, under the address text. A loading tab turns the toolbar's "+"
+   instead of the spinner. */
+@media (prefers-reduced-motion: no-preference) {
+	#nav-bar #urlbar .urlbar-background::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='24'><path d='M0 16H18Q24 11 30 16H46L50 18L55 2L60 21L63 16H80Q90 9 100 16H160' fill='none' stroke='context-stroke' stroke-width='1.5' stroke-linejoin='round' stroke-linecap='round'/></svg>") repeat-x left center / 160px 24px;
+		-moz-context-properties: stroke;
+		stroke: var(--gnome-palette-green-5);
+		/* The visible stretch: a fading tail behind a bright head */
+		mask: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.3) 70%, black 97%, transparent) no-repeat;
+		mask-size: 40% 100%;
+		mask-position: -67% 0;
+		opacity: 0;
+		transition: opacity 0.6s;
+		animation: ecg-sweep 2s linear infinite paused;
+
+		@media (prefers-color-scheme: dark) {
+			stroke: var(--gnome-palette-green-3);
+		}
+	}
+	:root:has(#tabbrowser-tabs .tabbrowser-tab[visuallyselected][busy]) #nav-bar #urlbar .urlbar-background::before {
+		opacity: 0.6;
+		animation-play-state: running;
+	}
+
+	.tab-throbber[busy]::before {
+		background: var(--gnome-icon-list-add-symbolic) center / 16px no-repeat !important;
+		animation: plus-step 0.8s ease-in-out infinite !important;
+	}
+}
+@keyframes ecg-sweep {
+	to {
+		mask-position: 167% 0;
+	}
+}
+/* A quarter turn, then a pause: the "+" looks the same after each turn */
+@keyframes plus-step {
+	40%, 100% {
+		rotate: 90deg;
+	}
+}
