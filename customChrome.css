@@ -90,3 +90,12 @@
 	background-color: transparent !important;
 	fill: var(--gnome-palette-red-2) !important;
 }
+
+/* Tab hover preview: hidden while the pointer is on the close button.
+   Firefox counts the cross as part of the tab, so the preview popped up
+   while aiming at it; it comes back on the rest of the tab. The preview
+   is a window of its own: hiding only its content left an empty frame
+   with a shadow, so fade the whole window. */
+:root:has(#tabbrowser-tabs .tab-close-button:hover) #tab-preview-panel {
+	-moz-window-opacity: 0 !important;
+}
