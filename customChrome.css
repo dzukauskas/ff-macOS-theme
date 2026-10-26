@@ -172,6 +172,10 @@
 		background: var(--gnome-icon-list-add-symbolic) center / 16px no-repeat !important;
 		animation: plus-step 0.8s ease-in-out infinite !important;
 	}
+	/* Once the page starts arriving Firefox tints it blue; orange here */
+	.tab-throbber[busy][progress]::before {
+		fill: var(--gnome-palette-orange-3) !important;
+	}
 }
 @keyframes ecg-sweep {
 	to {
