@@ -26,15 +26,20 @@
    around a darker work area (#191919, its chat; customContent.css gives
    it to Firefox's own pages). The frame is the header bar and the sidebar,
    launcher strip and panel alike. The selected tab above takes the
-   work-area color, so it reads as joined to the page. Text fields take
-   the grey of Claude's input box (#303030). The theme dims the frame in
-   inactive windows; Claude doesn't, so neither does this. */
+   work-area color, so it reads as joined to the page. Text fields and
+   menus take the grey of Claude's input box and menus (#303030), a
+   hovered menu row its #4f4f4f. The theme dims the frame in inactive
+   windows; Claude doesn't, so neither does this. */
 @media (prefers-color-scheme: dark) {
 	:root, :root:-moz-window-inactive {
 		--gnome-headerbar-background: #232323 !important;
 		--gnome-sidebar-background: #232323 !important;
 		--gnome-secondary-sidebar-background: #232323 !important;
 		--gnome-entry-background: #303030 !important;
+		--gnome-menu-background: #303030 !important;
+	}
+	menupopup, panel {
+		--gnome-selected-color: #4f4f4f !important;
 	}
 }
 
